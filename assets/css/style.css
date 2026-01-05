@@ -1,15 +1,55 @@
 :root {
     --brand: #0d6efd;
     --bg-soft: #f7f9fc;
+
+    --page-bg: #f8fafc;
+    --surface: #ffffff;
+    --text: #111827;
+    --muted: #6b7280;
+    --border: rgba(15, 23, 42, .10);
+    --shadow: 0 10px 30px rgba(15, 23, 42, .06);
 }
 
 body {
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    color: #1f2937;
+    background: var(--page-bg);
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    text-underline-offset: .18em;
+    text-decoration-thickness: .08em;
+}
+
+:focus-visible {
+    outline: 3px solid rgba(13, 110, 253, .35);
+    outline-offset: 2px;
 }
 
 .navbar-brand {
     letter-spacing: .3px;
+}
+
+.navbar {
+    background: rgba(255, 255, 255, .92);
+    backdrop-filter: saturate(120%) blur(8px);
+}
+
+.navbar .nav-link {
+    border-radius: .75rem;
+    padding: .5rem .75rem;
+}
+
+.navbar .nav-link:hover {
+    background: rgba(13, 110, 253, .08);
+}
+
+.navbar .nav-link.active {
+    background: rgba(13, 110, 253, .12);
+    color: #0b5ed7;
 }
 
 .hero {
@@ -22,8 +62,9 @@ body {
 }
 
 .card {
+    background: var(--surface);
     border: 1px solid rgba(0, 0, 0, .08);
-    box-shadow: 0 4px 18px rgba(15, 23, 42, .04);
+    box-shadow: var(--shadow);
 }
 
 .badge-soft {
@@ -44,11 +85,20 @@ body {
 }
 
 .small-muted {
-    color: #6b7280;
+    color: var(--muted);
 }
 
 .table thead th {
     background: #f1f5f9;
+}
+
+.table {
+    --bs-table-border-color: rgba(15, 23, 42, .10);
+}
+
+.table td,
+.table th {
+    vertical-align: middle;
 }
 
 .topology {
