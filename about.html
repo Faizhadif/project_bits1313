@@ -1,271 +1,519 @@
 <!doctype html>
-<html lang="ms">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>CyberCafe Xpress | Introduction</title>
+<html lang="en" class="h-full">
 
-        <link
-            href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
-            rel="stylesheet">
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-            rel="stylesheet">
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <link href="assets/css/style.css" rel="stylesheet">
-    </head>
-    <body>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CyberCafe Xpress | Introduction</title>
+    <meta name="description"
+        content="Introduction, objectives, target market, and problem statement for CyberCafe Xpress." />
 
-        <nav class="navbar navbar-expand-lg sticky-top border-bottom">
-            <div class="container">
-                <a class="navbar-brand fw-semibold" href="index.html">CyberCafe
-                    Xpress</a>
-                <button class="navbar-toggler" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#nav"
-                    aria-controls="nav" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
 
-                <div class="collapse navbar-collapse" id="nav">
-                    <ul
-                        class="navbar-nav ms-auto gap-lg-1 align-items-lg-center">
-                        <li class="nav-item"><a class="nav-link"
-                                href="index.html">Home</a></li>
-                        <li class="nav-item"><a
-                                class="nav-link active fw-semibold"
-                                href="about.html"
-                                aria-current="page">Introduction</a></li>
-                        <li class="nav-item"><a class="nav-link"
-                                href="services.html">Hardware &
-                                Software</a></li>
-                        <li class="nav-item"><a class="nav-link"
-                                href="network.html">Network Design</a></li>
-                        <li class="nav-item"><a class="nav-link"
-                                href="contact.html">Contact</a></li>
+    <!-- Icons + AOS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Google Sans', 'Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif']
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a'
+                        },
+                        ink: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1f2937',
+                            900: '#0b1220',
+                            950: '#05070b'
+                        }
+                    },
+                    boxShadow: {
+                        soft: '0 14px 40px rgba(15, 23, 42, 0.12)',
+                        glow: '0 24px 90px rgba(37, 99, 235, 0.18)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            color-scheme: light;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Google Sans', Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+        }
+
+        [x-cloak] {
+            display: none !important;
+        }
+
+        :focus-visible {
+            outline: 3px solid rgba(37, 99, 235, .35);
+            outline-offset: 3px;
+            border-radius: 14px;
+        }
+
+        /* subtle noise */
+        .noise::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: .06;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+            mix-blend-mode: multiply;
+        }
+    </style>
+
+    <!-- Alpine -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body class="noise min-h-screen bg-slate-50 text-ink-900 antialiased">
+    <!-- Skip link -->
+    <a href="#content"
+        class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-xl focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow-soft">
+        Skip to content
+    </a>
+
+    <!-- Header -->
+    <header x-data="{ open:false }" @keydown.escape.window="open=false" class="sticky top-0 z-50">
+        <div class="border-b border-slate-200/70 bg-white/75 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+            <div class="mx-auto max-w-7xl px-4">
+                <div class="flex items-center justify-between py-3">
+                    <a href="index.html" class="group flex items-center gap-3 font-bold tracking-tight">
+                        <span class="relative inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-ink-950 text-white shadow-soft">
+                            <span class="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-brand-600/30 via-sky-400/20 to-fuchsia-500/20 blur opacity-0 transition group-hover:opacity-100"></span>
+                            <span class="relative">CX</span>
+                        </span>
+                        <span class="text-ink-900">CyberCafe Xpress</span>
+                    </a>
+
+                    <nav class="hidden lg:flex items-center gap-1">
+                        <a href="index.html" class="relative inline-flex items-center gap-2 px-3 py-2 text-sm font-semibold text-ink-600 hover:text-ink-900 transition
+                after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-px after:bg-brand-600 after:origin-left after:transition after:duration-300 after:scale-x-0 after:opacity-0 hover:after:scale-x-100 hover:after:opacity-100">
+                            <i class="bi bi-house-door text-[0.95rem]"></i><span>Home</span>
+                        </a>
+                        <a href="about.html" aria-current="page" class="relative inline-flex items-center gap-2 px-3 py-2 text-sm font-semibold text-ink-900 transition
+                after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-px after:bg-brand-600 after:origin-left after:transition after:duration-300 after:scale-x-100 after:opacity-100">
+                            <i class="bi bi-info-circle text-[0.95rem]"></i><span>Introduction</span>
+                        </a>
+                        <a href="services.html" class="relative inline-flex items-center gap-2 px-3 py-2 text-sm font-semibold text-ink-600 hover:text-ink-900 transition
+                after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-px after:bg-brand-600 after:origin-left after:transition after:duration-300 after:scale-x-0 after:opacity-0 hover:after:scale-x-100 hover:after:opacity-100">
+                            <i class="bi bi-pc-display text-[0.95rem]"></i><span>Hardware &amp; Software</span>
+                        </a>
+                        <a href="network.html" class="relative inline-flex items-center gap-2 px-3 py-2 text-sm font-semibold text-ink-600 hover:text-ink-900 transition
+                after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-px after:bg-brand-600 after:origin-left after:transition after:duration-300 after:scale-x-0 after:opacity-0 hover:after:scale-x-100 hover:after:opacity-100">
+                            <i class="bi bi-diagram-3 text-[0.95rem]"></i><span>Network Design</span>
+                        </a>
+                        <a href="contact.html" class="relative inline-flex items-center gap-2 px-3 py-2 text-sm font-semibold text-ink-600 hover:text-ink-900 transition
+                after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-px after:bg-brand-600 after:origin-left after:transition after:duration-300 after:scale-x-0 after:opacity-0 hover:after:scale-x-100 hover:after:opacity-100">
+                            <i class="bi bi-envelope text-[0.95rem]"></i><span>Contact</span>
+                        </a>
+                    </nav>
+
+                    <div class="hidden lg:flex items-center gap-2">
+                        <a href="contact.html" class="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-ink-700 shadow-sm transition hover:bg-slate-50">
+                            <i class="bi bi-chat-dots"></i>
+                            Get in touch
+                        </a>
+                        <a href="network.html" class="inline-flex items-center gap-2 rounded-2xl bg-ink-950 px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:bg-ink-900">
+                            <i class="bi bi-diagram-3"></i>
+                            View blueprint
+                        </a>
+                    </div>
+
+                    <button
+                        @click="open=!open"
+                        :aria-expanded="open.toString()"
+                        aria-controls="mobileMenu"
+                        class="lg:hidden inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white p-2.5 text-ink-900 shadow-sm hover:bg-slate-50">
+                        <span class="sr-only">Toggle navigation</span>
+                        <div class="relative h-5 w-6">
+                            <span class="absolute left-0 top-1 h-0.5 w-6 bg-ink-950 transition duration-300" :class="open ? 'translate-y-2 rotate-45' : ''"></span>
+                            <span class="absolute left-0 top-2.5 h-0.5 w-6 bg-ink-950 transition duration-300" :class="open ? 'opacity-0' : 'opacity-100'"></span>
+                            <span class="absolute left-0 top-4 h-0.5 w-6 bg-ink-950 transition duration-300" :class="open ? '-translate-y-2 -rotate-45' : ''"></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile overlay -->
+        <div x-show="open" x-cloak x-transition.opacity class="fixed inset-0 z-40 bg-ink-950/40 backdrop-blur-sm" @click="open=false"></div>
+
+        <!-- Mobile menu sheet -->
+        <div
+            id="mobileMenu"
+            x-show="open"
+            x-cloak
+            x-transition:enter="transition ease-out duration-250"
+            x-transition:enter-start="opacity-0 -translate-y-3"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-3"
+            class="fixed inset-x-0 top-[64px] z-50 lg:hidden">
+            <div class="mx-auto max-w-7xl px-4">
+                <div class="rounded-[1.75rem] border border-slate-200 bg-white p-3 shadow-glow">
+                    <div class="grid gap-2">
+                        <a href="index.html" @click="open=false" class="flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold transition text-ink-800 hover:bg-ink-50">
+                            <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-white/80 text-ink-900"><i class="bi bi-house-door"></i></span>
+                            <span>Home</span>
+                        </a>
+                        <a href="about.html" aria-current="page" @click="open=false" class="flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold transition bg-ink-900 text-white shadow-sm">
+                            <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-white/80 text-ink-900"><i class="bi bi-info-circle"></i></span>
+                            <span>Introduction</span>
+                        </a>
+                        <a href="services.html" @click="open=false" class="flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold transition text-ink-800 hover:bg-ink-50">
+                            <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-white/80 text-ink-900"><i class="bi bi-pc-display"></i></span>
+                            <span>Hardware &amp; Software</span>
+                        </a>
+                        <a href="network.html" @click="open=false" class="flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold transition text-ink-800 hover:bg-ink-50">
+                            <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-white/80 text-ink-900"><i class="bi bi-diagram-3"></i></span>
+                            <span>Network Design</span>
+                        </a>
+                        <a href="contact.html" @click="open=false" class="flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold transition text-ink-800 hover:bg-ink-50">
+                            <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-white/80 text-ink-900"><i class="bi bi-envelope"></i></span>
+                            <span>Contact</span>
+                        </a>
+                    </div>
+
+                    <div class="mt-3 grid grid-cols-2 gap-2">
+                        <a href="contact.html" @click="open=false" class="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-ink-800 hover:bg-slate-50">
+                            <i class="bi bi-chat-dots"></i> Contact
+                        </a>
+                        <a href="network.html" @click="open=false" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-ink-950 px-4 py-3 text-sm font-semibold text-white hover:bg-ink-900">
+                            <i class="bi bi-diagram-3"></i> Blueprint
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0">
+            <img
+                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2400&q=70&fm=webp"
+                alt=""
+                class="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+                referrerpolicy="no-referrer" />
+            <div class="absolute inset-0 bg-gradient-to-b from-ink-950/85 via-ink-950/70 to-slate-50"></div>
+            <div
+                class="absolute inset-0 opacity-[0.10] [background-image:linear-gradient(to_right,rgba(255,255,255,.25)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,.25)_1px,transparent_1px)] [background-size:72px_72px]">
+            </div>
+        </div>
+
+        <div class="relative mx-auto max-w-7xl px-4 py-14 sm:py-20">
+            <div class="max-w-2xl" data-aos="fade-up">
+                <div
+                    class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-wider text-white backdrop-blur">
+                    <span class="inline-block h-2 w-2 rounded-full bg-brand-500"></span>
+                    Introduction
+                </div>
+
+                <h1 class="mt-5 text-3xl font-bold tracking-tight text-white sm:text-5xl">
+                    Project overview and objectives for CyberCafe Xpress.
+                </h1>
+
+                <p class="mt-5 text-base leading-relaxed text-white/80 sm:text-lg">
+                    This section summarizes the problem being addressed, the intended audience, and the rationale behind the proposed design.
+                </p>
+
+                <div class="mt-8 flex flex-wrap items-center gap-3">
+                    <a href="services.html"
+                        class="inline-flex items-center gap-2 rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-ink-950 shadow-soft transition hover:bg-slate-100">
+                        <i class="bi bi-pc-display"></i> Hardware &amp; Software
+                    </a>
+                    <a href="contact.html"
+                        class="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-transparent px-6 py-3 text-sm font-semibold text-white/90 backdrop-blur transition hover:bg-white/10">
+                        <i class="bi bi-chat-dots"></i> Contact
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-10 grid gap-4 sm:grid-cols-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="rounded-3xl border border-white/10 bg-white/80 p-5 text-black/90 backdrop-blur">
+                    <div class="text-xs font-bold uppercase tracking-wider text-black/60">Topology</div>
+                    <div class="mt-2 flex items-center gap-2 text-sm font-semibold"><i class="bi bi-diagram-3"></i> Star</div>
+                </div>
+
+                <div class="rounded-3xl border border-white/10 bg-white/80 p-5 text-black/90 backdrop-blur">
+                    <div class="text-xs font-bold uppercase tracking-wider text-black/60">Media</div>
+                    <div class="mt-2 flex items-center gap-2 text-sm font-semibold"><i class="bi bi-ethernet"></i> Cat6 + WiFi</div>
+                </div>
+
+                <div class="rounded-3xl border border-white/10 bg-white/80 p-5 text-black/90 backdrop-blur">
+                    <div class="text-xs font-bold uppercase tracking-wider text-black/60">Scale</div>
+                    <div class="mt-2 flex items-center gap-2 text-sm font-semibold"><i class="bi bi-pc-display"></i> 10–20 PCs</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main -->
+    <main id="content" class="mx-auto max-w-7xl px-4 py-14">
+        <div class="grid gap-10 lg:grid-cols-12 lg:items-start">
+            <!-- Left -->
+            <section class="lg:col-span-7">
+                <div class="rounded-[2.25rem] border border-slate-200 bg-white p-8 shadow-soft" data-aos="fade-up">
+                    <div class="flex items-start justify-between gap-6">
+                        <div>
+                            <div class="text-xs font-bold uppercase tracking-wider text-ink-500">Introduction</div>
+                            <h2 class="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">What is CyberCafe Xpress?</h2>
+                            <p class="mt-3 text-ink-600">
+                                CyberCafe Xpress is a small-to-medium cyber café proposal focused on reliable network connectivity,
+                                straightforward session management, and a comfortable environment for students, gamers, and productivity users.
+                            </p>
+                        </div>
+                        <span
+                            class="hidden sm:inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-ink-50 px-4 py-2 text-sm font-semibold text-ink-800">
+                            <i class="bi bi-people"></i> Target: Students &amp; community
+                        </span>
+                    </div>
+
+                    <div class="mt-8 grid gap-4 sm:grid-cols-2">
+                        <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-brand-700 border border-brand-200">
+                                    <i class="bi bi-bullseye text-xl"></i>
+                                </span>
+                                <div class="font-semibold">Objectives</div>
+                            </div>
+                            <ul class="mt-4 space-y-2 text-sm text-ink-600">
+                                <li class="flex gap-2"><i class="bi bi-check2 text-brand-700"></i><span>Provide reliable PC and internet access</span></li>
+                                <li class="flex gap-2"><i class="bi bi-check2 text-brand-700"></i><span>Support printing and basic productivity needs</span></li>
+                                <li class="flex gap-2"><i class="bi bi-check2 text-brand-700"></i><span>Ensure clear session management that is easy to audit</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-brand-700 border border-brand-200">
+                                    <i class="bi bi-stars text-xl"></i>
+                                </span>
+                                <div class="font-semibold">Value proposition</div>
+                            </div>
+                            <ul class="mt-4 space-y-2 text-sm text-ink-600">
+                                <li class="flex gap-2"><i class="bi bi-check2 text-brand-700"></i><span>A premium yet practical setup</span></li>
+                                <li class="flex gap-2"><i class="bi bi-check2 text-brand-700"></i><span>Wired LAN for performance, WiFi for mobile users</span></li>
+                                <li class="flex gap-2"><i class="bi bi-check2 text-brand-700"></i><span>A network blueprint that is easy to troubleshoot</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 grid gap-6 lg:grid-cols-3" data-aos="fade-up" data-aos-delay="80">
+                        <div class="rounded-3xl border border-slate-200 bg-ink-50 p-6">
+                            <div class="text-xs font-bold uppercase tracking-wider text-ink-500">Location</div>
+                            <div class="mt-2 text-sm font-semibold text-ink-900">Shop lot 15’ × 25’</div>
+                            <p class="mt-2 text-sm text-ink-600">A straightforward layout that supports crowd control and clean cable management.</p>
+                        </div>
+
+                        <div class="rounded-3xl border border-slate-200 bg-ink-50 p-6">
+                            <div class="text-xs font-bold uppercase tracking-wider text-ink-500">Business model</div>
+                            <div class="mt-2 text-sm font-semibold text-ink-900">Pay-per-hour + packages</div>
+                            <p class="mt-2 text-sm text-ink-600">Flexible rates for study, gaming, and printing services.</p>
+                        </div>
+
+                        <div class="rounded-3xl border border-slate-200 bg-ink-50 p-6">
+                            <div class="text-xs font-bold uppercase tracking-wider text-ink-500">Operations</div>
+                            <div class="mt-2 text-sm font-semibold text-ink-900">Session billing system</div>
+                            <p class="mt-2 text-sm text-ink-600">Reduces manual errors and simplifies log and revenue tracking.</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 rounded-[2rem] border border-slate-200 bg-white p-6">
+                        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                            <div>
+                                <div class="text-sm font-semibold">Next: hardware and software stack</div>
+                                <p class="mt-1 text-sm text-ink-600">The following section outlines key components and the justification behind each choice.</p>
+                            </div>
+                            <a href="services.html"
+                                class="inline-flex items-center gap-2 rounded-2xl bg-ink-950 px-5 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-ink-900">
+                                <i class="bi bi-pc-display"></i> View stack
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right -->
+            <aside class="lg:col-span-5 space-y-4">
+                <div class="rounded-[2.25rem] border border-slate-200 bg-white p-8 shadow-soft" data-aos="fade-left" data-aos-delay="90">
+                    <h3 class="text-lg font-bold">Problem statement</h3>
+                    <p class="mt-3 text-sm text-ink-600">
+                        Many cyber cafés struggle with inconsistent networks—high latency, congestion during peak hours,
+                        and difficult troubleshooting. This proposal prioritizes the most critical requirement: stability.
+                    </p>
+
+                    <div class="mt-6 grid gap-3">
+                        <div class="rounded-2xl border border-slate-200 bg-ink-50 p-4">
+                            <div class="flex items-start gap-3">
+                                <i class="bi bi-exclamation-triangle text-brand-700"></i>
+                                <div>
+                                    <div class="text-sm font-semibold">Peak-hour congestion</div>
+                                    <div class="mt-1 text-sm text-ink-600">WiFi alone is not sufficient for 10–20 workstations running concurrently.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl border border-slate-200 bg-ink-50 p-4">
+                            <div class="flex items-start gap-3">
+                                <i class="bi bi-graph-up text-brand-700"></i>
+                                <div>
+                                    <div class="text-sm font-semibold">Unplanned scaling</div>
+                                    <div class="mt-1 text-sm text-ink-600">As more PCs are added, the network becomes harder to manage and downtime increases.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl border border-slate-200 bg-ink-50 p-4">
+                            <div class="flex items-start gap-3">
+                                <i class="bi bi-shield-lock text-brand-700"></i>
+                                <div>
+                                    <div class="text-sm font-semibold">Security risks and misuse</div>
+                                    <div class="mt-1 text-sm text-ink-600">Without segmentation, a single issue can impact all devices.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-7">
+                        <a href="network.html"
+                            class="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-brand-700">
+                            <i class="bi bi-diagram-3"></i> Go to Network Design
+                        </a>
+                    </div>
+                </div>
+
+                <div class="rounded-[2.25rem] border border-slate-200 bg-white p-8 shadow-soft" data-aos="fade-left" data-aos-delay="140">
+                    <h3 class="text-lg font-bold">Quick checklist (presentation)</h3>
+                    <ul class="mt-4 space-y-3 text-sm text-ink-700">
+                        <li class="flex gap-3"><i class="bi bi-check2-circle text-brand-700"></i><span>Explain target market and use cases</span></li>
+                        <li class="flex gap-3"><i class="bi bi-check2-circle text-brand-700"></i><span>Justify hardware choices (cost vs. performance)</span></li>
+                        <li class="flex gap-3"><i class="bi bi-check2-circle text-brand-700"></i><span>Show star topology benefits (isolated failure, manageability)</span></li>
+                        <li class="flex gap-3"><i class="bi bi-check2-circle text-brand-700"></i><span>Highlight baseline security (segmentation and endpoint protection)</span></li>
                     </ul>
                 </div>
-            </div>
-        </nav>
+            </aside>
+        </div>
+    </main>
 
-        <header class="hero py-5">
-            <div class="container py-lg-2">
-                <div class="row align-items-end g-3">
-                    <div class="col-lg-8">
-                        <span
-                            class="badge badge-soft rounded-pill mb-3">Introduction</span>
-                        <h1 class="h2 fw-bold mb-2">Business, Location & Target
-                            Market</h1>
-                        <p class="text-secondary mb-0">
-                            Penerangan ringkas cadangan perniagaan cyber café,
-                            lokasi cadangan, dan sasaran pelanggan.
-                        </p>
+    <!-- Footer -->
+    <footer class="mt-16 border-t border-slate-200 bg-white">
+        <div class="mx-auto max-w-7xl px-4 py-12">
+            <div class="grid gap-10 md:grid-cols-12">
+                <div class="md:col-span-5">
+                    <div class="flex items-center gap-3 font-bold tracking-tight text-ink-900">
+                        <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-ink-950 text-white">CX</span>
+                        <span>CyberCafe Xpress</span>
+                    </div>
+                    <p class="mt-4 max-w-md text-sm text-ink-600">
+                        A cyber café proposal centered on customer experience: reliable connectivity, streamlined management, and a comfortable environment.
+                    </p>
+
+                    <div class="mt-6 flex items-center gap-3 text-sm">
+                        <a class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 font-semibold text-ink-700 hover:bg-slate-50"
+                            href="contact.html">
+                            <i class="bi bi-envelope"></i> Contact
+                        </a>
+                        <a class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 font-semibold text-ink-700 hover:bg-slate-50"
+                            href="network.html">
+                            <i class="bi bi-diagram-3"></i> Network
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-7">
+                    <div class="grid gap-8 sm:grid-cols-3">
+                        <div>
+                            <div class="text-xs font-bold uppercase tracking-wider text-ink-500">Pages</div>
+                            <div class="mt-4 space-y-2 text-sm">
+                                <a class="block text-ink-700 hover:text-ink-900" href="index.html">Home</a>
+                                <a class="block text-ink-700 hover:text-ink-900" href="about.html">Introduction</a>
+                                <a class="block text-ink-700 hover:text-ink-900" href="services.html">Hardware &amp; Software</a>
+                                <a class="block text-ink-700 hover:text-ink-900" href="network.html">Network Design</a>
+                                <a class="block text-ink-700 hover:text-ink-900" href="contact.html">Contact</a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="text-xs font-bold uppercase tracking-wider text-ink-500">Highlights</div>
+                            <div class="mt-4 space-y-2 text-sm text-ink-700">
+                                <div class="flex items-center gap-2"><i class="bi bi-lightning-charge text-brand-700"></i> Low-latency LAN</div>
+                                <div class="flex items-center gap-2"><i class="bi bi-shield-check text-brand-700"></i> Baseline security posture</div>
+                                <div class="flex items-center gap-2"><i class="bi bi-gear text-brand-700"></i> Easy to manage</div>
+                                <div class="flex items-center gap-2"><i class="bi bi-arrows-expand text-brand-700"></i> Scalable design</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="text-xs font-bold uppercase tracking-wider text-ink-500">Course</div>
+                            <p class="mt-4 text-sm text-ink-600">BITS1313 • Data Communication &amp; Networking</p>
+                            <p class="mt-3 text-xs text-ink-500">Images via Unsplash (CDN).</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </header>
 
-        <main class="py-5">
-            <div class="container">
-                <div class="row g-4">
-                    <div class="col-lg-8">
-                        <div class="card rounded-4" data-aos="fade-up">
-                            <div class="card-body p-4 p-lg-5">
-                                <h2 class="h5 fw-bold mb-3">The Business</h2>
-                                <p class="text-secondary mb-4">
-                                    CyberCafe Xpress dicadangkan sebagai pusat
-                                    akses komputer dan internet yang menyediakan
-                                    workstation
-                                    untuk gaming, pembelajaran, dan kerja
-                                    digital. Operasi premis disokong oleh
-                                    rangkaian LAN yang stabil,
-                                    pengurusan sesi pelanggan yang sistematik,
-                                    dan kemudahan asas yang selesa.
-                                </p>
-
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <div class="kpi p-4">
-                                            <div class="fw-semibold">Core
-                                                Offering</div>
-                                            <div
-                                                class="small-muted">Workstations
-                                                • Gaming • WiFi</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="kpi p-4">
-                                            <div
-                                                class="fw-semibold">Operations</div>
-                                            <div
-                                                class="small-muted">Session-based
-                                                • Member package</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <hr class="soft my-5">
-
-                                <h2 class="h5 fw-bold mb-3">Location</h2>
-                                <p class="text-secondary mb-3">
-                                    Lokasi dicadangkan berhampiran kawasan
-                                    berpermintaan tinggi seperti kawasan
-                                    institusi pendidikan, kawasan
-                                    perumahan berpenduduk padat, atau pusat
-                                    komersial. Faktor utama pemilihan lokasi
-                                    ialah akses mudah,
-                                    keselamatan, dan potensi trafik pelanggan.
-                                </p>
-                                <ul class="text-secondary mb-0">
-                                    <li>Dekat kolej/universiti atau kawasan sewa
-                                        rumah pelajar</li>
-                                    <li>Mempunyai parkir dan akses
-                                        pengangkutan</li>
-                                    <li>Persekitaran selamat untuk operasi
-                                        malam</li>
-                                </ul>
-
-                                <hr class="soft my-5">
-
-                                <h2 class="h5 fw-bold mb-3">Target Market</h2>
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <div class="card rounded-4 h-100">
-                                            <div class="card-body p-4">
-                                                <div
-                                                    class="fw-semibold">Pelajar</div>
-                                                <div
-                                                    class="small-muted">Pembelajaran,
-                                                    research, dan urusan
-                                                    online</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="card rounded-4 h-100">
-                                            <div class="card-body p-4">
-                                                <div
-                                                    class="fw-semibold">Gamers</div>
-                                                <div class="small-muted">Gaming
-                                                    session, multiplayer, dan
-                                                    komuniti esports</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="card rounded-4 h-100">
-                                            <div class="card-body p-4">
-                                                <div
-                                                    class="fw-semibold">Freelancer</div>
-                                                <div class="small-muted">Kerja
-                                                    remote, design, editing, dan
-                                                    produktiviti</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="card rounded-4 h-100">
-                                            <div class="card-body p-4">
-                                                <div
-                                                    class="fw-semibold">Komuniti
-                                                    Setempat</div>
-                                                <div class="small-muted">Urusan
-                                                    digital, e-government, dan
-                                                    servis umum</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="card rounded-4" data-aos="fade-left" data-aos-delay="50">
-                            <div class="card-body p-4 p-lg-5">
-                                <h3 class="h5 fw-bold mb-3">Premise Profile</h3>
-
-                                <div
-                                    class="d-flex justify-content-between gap-3 mb-2">
-                                    <span class="small-muted">Premise
-                                        size</span>
-                                    <span class="fw-semibold">15’ × 25’</span>
-                                </div>
-                                <div
-                                    class="d-flex justify-content-between gap-3 mb-2">
-                                    <span class="small-muted">Proposed
-                                        stations</span>
-                                    <span class="fw-semibold">10–20 PCs</span>
-                                </div>
-                                <div
-                                    class="d-flex justify-content-between gap-3 mb-2">
-                                    <span class="small-muted">Operating
-                                        concept</span>
-                                    <span
-                                        class="fw-semibold">Session-based</span>
-                                </div>
-                                <div
-                                    class="d-flex justify-content-between gap-3 mb-0">
-                                    <span class="small-muted">Network
-                                        approach</span>
-                                    <span class="fw-semibold">Centralized
-                                        core</span>
-                                </div>
-
-                                <hr class="soft my-4">
-
-                                <h4 class="h6 fw-semibold mb-2">Navigation</h4>
-                                <div class="d-grid gap-2">
-                                    <a class="btn btn-outline-primary"
-                                        href="services.html">Hardware &
-                                        Software</a>
-                                    <a class="btn btn-outline-secondary"
-                                        href="network.html">Network Design</a>
-                                    <a class="btn btn-primary"
-                                        href="contact.html">Contact</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card rounded-4 mt-4" data-aos="fade-left" data-aos-delay="100">
-                            <div class="card-body p-4 p-lg-5">
-                                <h4 class="h6 fw-semibold mb-2">Business
-                                    Objectives</h4>
-                                <ul class="small-muted mb-0">
-                                    <li>Menyediakan akses internet stabil untuk
-                                        ramai pengguna serentak</li>
-                                    <li>Menyokong gaming dan pembelajaran dalam
-                                        persekitaran kondusif</li>
-                                    <li>Mengurus rangkaian dengan kos efektif
-                                        dan mudah diselenggara</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
+            <div class="mt-10 flex flex-col gap-3 border-t border-slate-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
+                <p class="text-xs text-ink-500">© 2026 CyberCafe Xpress. All rights reserved.</p>
+                <div class="flex items-center gap-4 text-xs text-ink-500">
+                    <span class="inline-flex items-center gap-2"><i class="bi bi-geo-alt"></i> Shop lot 15’ × 25’</span>
+                    <span class="inline-flex items-center gap-2"><i class="bi bi-wifi"></i> Wired + WiFi</span>
                 </div>
             </div>
-        </main>
+        </div>
+    </footer>
 
-        <footer class="footer py-4">
-            <div
-                class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
-                <div class="small-muted">© 2026 CyberCafe Xpress</div>
-            </div>
-        </footer>
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            duration: 700,
+            offset: 80,
+            easing: 'ease-out-quart'
+        });
+    </script>
+</body>
 
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script>
-            AOS.init({
-                once: true,
-                duration: 650,
-                offset: 90,
-                easing: "ease-out",
-                disable: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-            });
-        </script>
-    </body>
 </html>
